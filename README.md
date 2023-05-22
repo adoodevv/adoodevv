@@ -1,6 +1,5 @@
 - 👋 Hi, I’m Jonathan Adoo
-- 👀 I’m interested in Machine Learning and Artificial Intelligence
-- 🌱 I’m currently learning Machine Learning with Python
+- 👀 I’m interested in Robotics
 - 💞️ I’m looking to collaborate on any project you're interested
 - 📫 How to reach me adoojonthan412@gmail.com
 
