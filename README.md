@@ -1,4 +1,4 @@
-###  👋 Hi, I’m Jonathan Adoo
+## 👋 Hi, I’m Jonathan Adoo
 ## Robotics is my main interest
 - 🔍 Currently working on a **web scraper project and a data analysis project with python**
 - 💡 Currently learning **ROS and embarking on Robotics competitions to improve**
