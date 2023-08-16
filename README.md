@@ -1,8 +1,8 @@
 ## 👋 Hi, I’m Jonathan Adoo
 ## Robotics is my main interest
-- 🔍 Currently working on a **web scraper project and a data analysis project with python**
-- 💡 Currently learning **ROS and embarking on Robotics competitions to improve**
-- 😌 Talk to me about **getting started with robotics**
+- 🔍 Currently building **personal projects in front-end**
+- 💡 Currently learning **front-end development to become a full-stack developer**
+- 😌 Talk to me about **getting started with robotics and UI/UX designing**
 - 📫 How to reach me adoojonathan412@gmail.com
 <!---
 adoojoey/adoojoey is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
