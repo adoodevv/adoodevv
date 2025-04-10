@@ -6,27 +6,42 @@ import { FaArrowRight } from "react-icons/fa";
 const projects = [
    {
       title: "YARA Website​",
-      image: "/profile.png",
+      image: "/portfolio/yara.png",
       link: "https://www.github.com/adoodevv/yara-website",
    },
    {
+      title: "WRO 2025 Future Engineers​",
+      image: "/portfolio/sojourner.jpg",
+      link: "https://www.github.com/codecrafters/pathfinders",
+   },
+   {
       title: "Elysian Treats Website​",
-      image: "/profile.png",
+      image: "/portfolio/elysian.png",
       link: "https://www.github.com/adoodevv/elysian-treats",
    },
    {
+      title: "Differential robot​",
+      image: "/portfolio/gazebo.png",
+      link: "https://www.github.com/adoodevv/diff_drive_robot",
+   },
+   {
+      title: "Movie Dashboard​",
+      image: "/portfolio/movie.png",
+      link: "https://www.github.com/adoodevv/movie-dashboard",
+   },
+   {
       title: "Precision Robot​",
-      image: "/hero.jpg",
+      image: "/portfolio/robot.jpg",
       link: "https://www.github.com/adoodevv/scout",
    },
    {
       title: "Offgrid Labs Website​",
-      image: "/hero.jpg",
+      image: "/portfolio/offgrid.png",
       link: "https://www.github.com/adoodevv/offgrid-labs",
    },
    {
       title: "Hotel Management App​",
-      image: "/profile.png​",
+      image: "/portfolio/hotel.png",
       link: "https://www.github.com/adoodevv/hotel-management-app",
    },
 ];
