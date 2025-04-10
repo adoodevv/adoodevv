@@ -25,21 +25,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.montserrat-h1 {
+h1 {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 900;
   font-style: normal;
 }
 
-.montserrat-h2 {
+h2 {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
 }
 
-.montserrat-h3 {
+h3 {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -47,6 +47,13 @@ body {
 }
 
 .montserrat-p {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;

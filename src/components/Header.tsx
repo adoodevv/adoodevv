@@ -47,7 +47,7 @@ const Header = () => {
                </Link>
             ))}
 
-            <button className="hidden text-white font-bold md:flex items-center bg-blue-900 px-4 py-2 rounded-md hover:-translate-y-1 transition-all duration-500">
+            <button className="hidden text-white font-bold md:flex items-center bg-blue-900 px-4 py-2 rounded-lg hover:-translate-y-1 transition-all duration-500">
                DOWNLOAD CV
                <ArrowDown className="w-4 h-4 ml-2" />
             </button>
@@ -85,7 +85,7 @@ const Header = () => {
                            {item.label}
                         </Link>
                      ))}
-                     <button className="w-2/3 text-white text-center px-3 py-2 rounded-full bg-blue-900">
+                     <button className="w-2/3 text-white text-center px-3 py-2 rounded-lg bg-blue-900">
                         DOWNLOAD CV
                      </button>
                   </div>
