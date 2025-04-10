@@ -3,6 +3,9 @@
 import Footer from "@/components/Footer";
 import Profile from "@/components/Profile";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { GiRobotGolem, GiTeacher } from "react-icons/gi";
+import { TbReportSearch } from "react-icons/tb";
+import { FaLaptopCode } from "react-icons/fa";
 import Image from "next/image";
 import { useState } from 'react';
 
@@ -21,10 +24,10 @@ const testimonials = [
 ];
 
 const myServices = [
-  { name: "Web Development", icon: ChevronLeft },
-  { name: "Robotics Training", icon: ChevronRight },
-  { name: "Robot Designing", icon: ChevronLeft },
-  { name: "Research", icon: ChevronRight },
+  { name: "Web Development", icon: FaLaptopCode },
+  { name: "Robotics Training", icon: GiTeacher },
+  { name: "Robot Designing", icon: GiRobotGolem },
+  { name: "Research", icon: TbReportSearch },
 ];
 
 export default function Home() {
@@ -51,22 +54,22 @@ export default function Home() {
           priority
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center z-20">
-          <h2 className="text-lg md:text-xxl font-bold text-center">
+          <h2 className="text-base md:text-lg font-bold text-center">
             HI THERE!
           </h2>
           <h1 className="text-4xl md:text-6xl font-bold text-center">
-            Welcome <span className="text-blue-900">To</span> My Space!
+            Welcome To My Space!
           </h1>
         </div>
       </div>
 
       <div className="container flex justify-center absolute top-[40%] mx-auto z-20">
         <div className="relative grid md:grid-cols-3 gap-6 p-4">
-          <div>
+          <div className="md:sticky md:top-24 md:self-start md:h-[calc(100vh-5rem)] w-full">
             <Profile />
           </div>
-          <div className="md:col-span-2">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          <div className="md:col-span-2 md:mt-10">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
               {stats.map((stat) => (
                 <div key={stat.label} className="p-4 rounded-lg border-b-2 border-blue-900 bg-neutral-900 flex flex-col items-center justify-center">
                   <h2 className="text-3xl font-bold py-4 px-24">{stat.number}<span className="text-blue-900 ml-1">{stat.plus}</span></h2>
@@ -83,11 +86,11 @@ export default function Home() {
                 Currently exploring the interesting realm of Robot Operating System(ROS) and learning a little backend development.
               </p>
             </div>
-            <div className="relative group">
-              <h2 className="pt-8">TESTIMONIALS</h2>
+            <div className="relative">
+              <h2 className="py-8 md:py-0 md:pt-8">TESTIMONIALS</h2>
               <div className="flex overflow-hidden min-h-[300px] items-center justify-center">
-                <div className="relative flex-shrink-0 w-full transition-opacity duration-500">
-                  <div className="flex flex-col items-center w-full bg-neutral-900 p-4 rounded-lg border-b-2 border-blue-900">
+                <div className="flex-shrink-0 w-full transition-opacity duration-500">
+                  <div className="group relative flex flex-col items-center w-full bg-neutral-900 p-4 rounded-lg border-b-2 border-blue-900">
                     <div className="w-24 rounded-full overflow-hidden mb-4">
                       <Image
                         src={testimonials[activeIndex].image}
@@ -102,31 +105,32 @@ export default function Home() {
                     <p className="font-bold text-white/50 text-center mt-2">
                       {testimonials[activeIndex].feedback}
                     </p>
+                    <button
+                      className="absolute left-4 top-1/3 md:top-1/2 transform -translate-y-1/2 bg-blue-900 p-2 rounded-full text-white md:opacity-0 group-hover:opacity-100 transition-all duration-300"
+                      onClick={handlePrev}
+                    >
+                      <ChevronLeft size={24} />
+                    </button>
+
+                    <button
+                      className="absolute right-4 top-1/3 md:top-1/2 transform -translate-y-1/2 bg-blue-900 p-2 rounded-full text-white md:opacity-0 group-hover:opacity-100 transition-all duration-300"
+                      onClick={handleNext}
+                    >
+                      <ChevronRight size={24} />
+                    </button>
                   </div>
                 </div>
-                <button
-                  className="absolute left-4 top-1/3 md:top-1/2 transform -translate-y-1/2 bg-blue-900 p-2 rounded-full text-white md:opacity-0 group-hover:opacity-100 transition-all duration-300"
-                  onClick={handlePrev}
-                >
-                  <ChevronLeft size={24} />
-                </button>
 
-                <button
-                  className="absolute right-4 top-1/3 md:top-1/2 transform -translate-y-1/2 bg-blue-900 p-2 rounded-full text-white md:opacity-0 group-hover:opacity-100 transition-all duration-300"
-                  onClick={handleNext}
-                >
-                  <ChevronRight size={24} />
-                </button>
               </div>
             </div>
             <div>
-              <h2 className="pb-8">MY SERVICES</h2>
-              <div className="grid grid-cols-2 gap-6">
+              <h2 className="py-8">MY SERVICES</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {myServices.map((service, index) => (
                   <div key={index} className="p-4 rounded-lg border-b-2 border-blue-900 bg-neutral-900 flex flex-col">
                     <div className="text-white/50 p-2">
-                      <service.icon className="h-6 w-6" />
-                      <h2 className="mt-8">{service.name}</h2>
+                      <service.icon className="h-12 w-12" />
+                      <h2 className="mt-4 md:mt-8 text-white">{service.name}</h2>
                     </div>
                   </div>
                 ))}

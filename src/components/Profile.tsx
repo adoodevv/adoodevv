@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter, FaHashnode } from "react-icons/fa6";
+import { CiMail } from "react-icons/ci";
 
 const work = ["I'M A ROBOTICIST", "I'M A FRONTEND WEB DEVELOPER", "I'M A TUTOR", "I LOVE F1"];
 
@@ -63,7 +64,10 @@ const Profile = () => {
             </div>
          </div>
          <div className="border-b border-white w-4/5 opacity-20"></div>
-         <button className="py-2 px-3 mt-4 bg-blue-900 rounded-lg font-semibold">CONTACT ME</button>
+         <Link href="mailto:adoojonathan412@gmail.com/">
+            <button className="flex items-center text-sm md:text-base py-2 px-3 mt-4 bg-blue-900 rounded-lg font-semibold hover:opacity-80">CONTACT ME<CiMail className="w-5 h-5 ml-2" /></button>
+         </Link>
+
       </div>
    )
 }
