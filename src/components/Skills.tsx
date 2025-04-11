@@ -1,25 +1,22 @@
 import Image from "next/image";
+import FadeUpAnimation from "./FadeUp";
 
 const tools = [
    {
       id: 1,
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-      position: "col-start-1 row-start-1"
    },
    {
       id: 2,
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gazebo/gazebo-original.svg",
-      position: "col-start-2 row-start-1"
    },
    {
       id: 3,
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
-      position: "col-start-3 row-start-1"
    },
    {
       id: 4,
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg",
-      position: "col-start-1 row-start-2"
    },
    {
       id: 5,
@@ -49,18 +46,17 @@ const Skills = () => {
          <div className="w-full">
             <div className="grid grid-cols-3 md:grid-cols-5 gap-4 place-items-center">
                {tools.map((tool) => (
-                  <div
-                     key={tool.id}
-                     className="p-4 transition-all duration-300 animate-wiggle"
-                  >
-                     <Image
-                        width={50}
-                        height={50}
-                        src={tool.icon}
-                        alt="tool icon"
-                        className="w-12 h-12"
-                     />
-                  </div>
+                  <FadeUpAnimation key={tool.id} delay={tool.id * 0.1}>
+                     <div className="p-4 transition-all duration-300 animate-wiggle">
+                        <Image
+                           width={50}
+                           height={50}
+                           src={tool.icon}
+                           alt="tool icon"
+                           className="w-12 h-12"
+                        />
+                     </div>
+                  </FadeUpAnimation>
                ))}
             </div>
          </div>

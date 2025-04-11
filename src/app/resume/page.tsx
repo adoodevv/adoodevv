@@ -4,6 +4,8 @@ import Profile from "@/components/Profile";
 import Skills from "@/components/Skills";
 import { FaArrowRight, FaCircle } from "react-icons/fa";
 import Link from "next/link";
+import FadeUpAnimation from "@/components/FadeUp";
+import { Fade } from "hamburger-react";
 
 const softSkills = [
    "Team Player", "Communication", "Leadership", "Curiosity", "Decision Making", "Problem Solving", "Time Management"
@@ -136,12 +138,11 @@ const Resume = () => {
                      <h2 className="py-8">SOFT SKILLS</h2>
                      <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-2 bg-neutral-900 border-b-2 rounded-lg border-blue-900">
                         {softSkills.map((skill, index) => (
-                           <div
-                              key={index}
-                              className="p-4"
-                           >
-                              <p className="flex items-center gap-2"><FaCircle className="text-green h-2 w-2 text-green-300 font-extrabold" />{skill}</p>
-                           </div>
+                           <FadeUpAnimation key={index} delay={index * 0.1}>
+                              <div className="p-4">
+                                 <p className="flex items-center gap-2"><FaCircle className="text-green h-2 w-2 text-green-300 font-extrabold" />{skill}</p>
+                              </div>
+                           </FadeUpAnimation>
                         ))}
                      </div>
                   </div>
@@ -149,28 +150,29 @@ const Resume = () => {
                      <h2 className="py-8">PROFESSIONAL EXPERIENCES</h2>
                      <div className="grid grid-cols-1 gap-4">
                         {professionalExperience.map((experience, index) => (
-                           <div
-                              key={index}
-                              className="p-4 bg-neutral-900 border-b-2 rounded-lg border-blue-900"
-                           >
-                              <h3 className="text-xl font-bold">{experience.title}</h3>
-                              <p className="text-green-300 py-4">{experience.company} | {experience.location} | {experience.date}</p>
-                              <ul className="list-disc list-inside">
-                                 {experience.description.map((desc, idx) => (
-                                    <li key={idx} className="text-white/50">{desc}</li>
-                                 ))}
-                              </ul>
-                              {experience.link && (
-                                 <Link
-                                    href={experience.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group text-green-300 mt-4 inline-block"
-                                 >
-                                    <p className="flex items-center">{experience.company}<FaArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-2 transition-all duration-300" /></p>
-                                 </Link>
-                              )}
-                           </div>
+                           <FadeUpAnimation key={index} delay={index * 0.1}>
+                              <div
+                                 className="p-4 bg-neutral-900 border-b-2 rounded-lg border-blue-900"
+                              >
+                                 <h3 className="text-xl font-bold">{experience.title}</h3>
+                                 <p className="text-green-300 py-4">{experience.company} | {experience.location} | {experience.date}</p>
+                                 <ul className="list-disc list-inside">
+                                    {experience.description.map((desc, idx) => (
+                                       <li key={idx} className="text-white/50">{desc}</li>
+                                    ))}
+                                 </ul>
+                                 {experience.link && (
+                                    <Link
+                                       href={experience.link}
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       className="group text-green-300 mt-4 inline-block"
+                                    >
+                                       <p className="flex items-center">{experience.company}<FaArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-2 transition-all duration-300" /></p>
+                                    </Link>
+                                 )}
+                              </div>
+                           </FadeUpAnimation>
                         ))}
                      </div>
                   </div>
@@ -192,13 +194,12 @@ const Resume = () => {
                      <h2 className="py-8">CERTIFICATES</h2>
                      <div className="grid md:grid-cols-3 gap-4">
                         {certificates.map((cert, index) => (
-                           <div
-                              key={index}
-                              className="p-4 bg-neutral-900 border-b-2 rounded-lg border-blue-900"
-                           >
-                              <h3 className="text-xl font-bold">{cert.title}</h3>
-                              <p className="text-green-300 py-4">{cert.institution} | {cert.date}</p>
-                           </div>
+                           <FadeUpAnimation key={index} delay={index * 0.1}>
+                              <div className="p-4 bg-neutral-900 border-b-2 rounded-lg border-blue-900">
+                                 <h3 className="text-xl font-bold">{cert.title}</h3>
+                                 <p className="text-green-300 py-4">{cert.institution} | {cert.date}</p>
+                              </div>
+                           </FadeUpAnimation>
                         ))}
                      </div>
                   </div>

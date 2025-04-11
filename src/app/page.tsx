@@ -8,6 +8,8 @@ import { TbReportSearch } from "react-icons/tb";
 import { FaLaptopCode } from "react-icons/fa";
 import Image from "next/image";
 import { useState } from 'react';
+import CountUpNumber from "@/components/CountUpNUmber";
+import FadeUpAnimation from "@/components/FadeUp";
 
 const stats = [
   { number: 50, plus: "+", label: "STUDENTS TAUGHT" },
@@ -70,69 +72,74 @@ export default function Home() {
           </div>
           <div className="md:col-span-2 md:mt-10">
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-              {stats.map((stat) => (
-                <div key={stat.label} className="p-4 rounded-lg border-b-2 border-blue-900 bg-neutral-900 flex flex-col items-center justify-center">
-                  <h2 className="text-3xl font-bold py-4 px-24">{stat.number}<span className="text-blue-900 ml-1">{stat.plus}</span></h2>
-                  <div className="border-b border-white w-4/5 opacity-20"></div>
-                  <p className="py-4 font-semibold text-center">{stat.label}</p>
-                </div>
+              {stats.map((stat, index) => (
+                <FadeUpAnimation key={index} delay={index * 0.1}>
+                  <div className="p-4 rounded-lg border-b-2 border-blue-900 bg-neutral-900 flex flex-col items-center justify-center">
+                    <h2 className="flex items-center text-3xl font-bold py-4 px-24"><CountUpNumber endValue={stat.number} duration={1000} /><span className="text-blue-900 ml-1">{stat.plus}</span></h2>
+                    <div className="border-b border-white w-4/5 opacity-20"></div>
+                    <p className="py-4 font-semibold text-center">{stat.label}</p>
+                  </div>
+                </FadeUpAnimation>
               ))}
             </div>
             <div>
               <h2 className="py-8">MY STORY</h2>
-              <p className="p-4 rounded-lg border-b-2 border-blue-900 bg-neutral-900">
-                I'm a third-year Computer Engineering student with a passion for bringing ideas to life with technology.
-                As a natural project leader, I combine my technical expertise in robotics with frontend development to create innovative solutions.
-                Currently exploring the interesting realm of Robot Operating System(ROS) and learning a little backend development.
-              </p>
+              <FadeUpAnimation delay={0.1}>
+                <p className="p-4 rounded-lg border-b-2 border-blue-900 bg-neutral-900">
+                  I'm a third-year Computer Engineering student with a passion for bringing ideas to life with technology.
+                  As a natural project leader, I combine my technical expertise in robotics with frontend development to create innovative solutions.
+                  Currently exploring the interesting realm of Robot Operating System(ROS) and learning a little backend development.
+                </p>
+              </FadeUpAnimation>
             </div>
             <div className="relative">
               <h2 className="py-8 md:py-0 md:pt-8">TESTIMONIALS</h2>
-              <div className="flex overflow-hidden min-h-[300px] items-center justify-center">
-                <div className="flex-shrink-0 w-full transition-opacity duration-500">
-                  <div className="group relative flex flex-col items-center w-full bg-neutral-900 p-4 rounded-lg border-b-2 border-blue-900">
-                    <div className="w-24 rounded-full overflow-hidden mb-4">
-                      <Image
-                        src={testimonials[activeIndex].image}
-                        alt={testimonials[activeIndex].name}
-                        width={256}
-                        height={256}
-                        priority
-                      />
-                    </div>
-                    <h2 className="font-bold text-lg md:text-xl">{testimonials[activeIndex].name}</h2>
-                    <p className="text-sm text-green-300">{testimonials[activeIndex].position}</p>
-                    <p className="font-bold text-white/50 text-center mt-2">
-                      {testimonials[activeIndex].feedback}
-                    </p>
-                    <button
-                      className="absolute left-4 top-1/3 md:top-1/2 transform -translate-y-1/2 bg-blue-900 p-2 rounded-full text-white md:opacity-0 group-hover:opacity-100 transition-all duration-300"
-                      onClick={handlePrev}
-                    >
-                      <ChevronLeft size={24} />
-                    </button>
+              <FadeUpAnimation delay={0.1}>
+                <div className="flex overflow-hidden min-h-[300px] items-center justify-center">
+                  <div className="flex-shrink-0 w-full transition-opacity duration-500">
+                    <div className="group relative flex flex-col items-center w-full bg-neutral-900 p-4 rounded-lg border-b-2 border-blue-900">
+                      <div className="w-24 rounded-full overflow-hidden mb-4">
+                        <Image
+                          src={testimonials[activeIndex].image}
+                          alt={testimonials[activeIndex].name}
+                          width={256}
+                          height={256}
+                          priority
+                        />
+                      </div>
+                      <h2 className="font-bold text-lg md:text-xl">{testimonials[activeIndex].name}</h2>
+                      <p className="text-sm text-green-300">{testimonials[activeIndex].position}</p>
+                      <p className="font-bold text-white/50 text-center mt-2">
+                        {testimonials[activeIndex].feedback}
+                      </p>
+                      <button
+                        className="absolute left-4 top-1/3 md:top-1/2 transform -translate-y-1/2 bg-blue-900 p-2 rounded-full text-white md:opacity-0 group-hover:opacity-100 transition-all duration-300"
+                        onClick={handlePrev}
+                      >
+                        <ChevronLeft size={24} />
+                      </button>
 
-                    <button
-                      className="absolute right-4 top-1/3 md:top-1/2 transform -translate-y-1/2 bg-blue-900 p-2 rounded-full text-white md:opacity-0 group-hover:opacity-100 transition-all duration-300"
-                      onClick={handleNext}
-                    >
-                      <ChevronRight size={24} />
-                    </button>
+                      <button
+                        className="absolute right-4 top-1/3 md:top-1/2 transform -translate-y-1/2 bg-blue-900 p-2 rounded-full text-white md:opacity-0 group-hover:opacity-100 transition-all duration-300"
+                        onClick={handleNext}
+                      >
+                        <ChevronRight size={24} />
+                      </button>
+                    </div>
                   </div>
                 </div>
-
-              </div>
+              </FadeUpAnimation>
             </div>
             <div>
               <h2 className="py-8">MY SERVICES</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {myServices.map((service, index) => (
-                  <div key={index} className="p-4 rounded-lg border-b-2 border-blue-900 bg-neutral-900 flex flex-col">
-                    <div className="text-white/50 p-2">
-                      <service.icon className="h-12 w-12" />
+                  <FadeUpAnimation key={index} delay={index * 0.1}>
+                    <div className="p-4 rounded-lg border-b-2 border-blue-900 bg-neutral-900 flex flex-col items-center justify-center">
+                      <service.icon className="h-12 w-12 text-white/50" />
                       <h2 className="mt-4 md:mt-8 text-white">{service.name}</h2>
                     </div>
-                  </div>
+                  </FadeUpAnimation>
                 ))}
               </div>
             </div>

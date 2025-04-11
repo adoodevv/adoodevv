@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import { FaArrowRight } from "react-icons/fa";
+import FadeUpAnimation from "@/components/FadeUp";
 
 const projects = [
    {
@@ -70,39 +71,38 @@ const Portfolio = () => {
          <div className="container mx-auto px-4 z-20 absolute top-[40%]">
             <div className="grid md:grid-cols-3 gap-4">
                {projects.map((project, index) => (
-                  <div
-                     key={index}
-                     className="relative group bg-neutral-900 rounded-lg overflow-hidden"
-                  >
-                     <div className="absolute inset-0 bg-blue-900/80 scale-y-0 group-hover:scale-y-25 origin-bottom transition-transform duration-500 z-30 pointer-events-none md:block hidden rounded-b-xl" />
+                  <FadeUpAnimation key={index} delay={index * 0.1}>
+                     <div className="relative group bg-neutral-900 rounded-lg overflow-hidden">
+                        <div className="absolute inset-0 bg-blue-900/80 scale-y-0 group-hover:scale-y-25 origin-bottom transition-transform duration-500 z-30 pointer-events-none md:block hidden rounded-b-xl" />
 
-                     <div className="md:hidden absolute bottom-0 left-0 w-full h-1/4 bg-blue-900/80 z-30 rounded-b-lg pointer-events-none" />
+                        <div className="md:hidden absolute bottom-0 left-0 w-full h-1/4 bg-blue-900/80 z-30 rounded-b-lg pointer-events-none" />
 
-                     <div className="relative w-full h-64 md:h-80">
-                        <Image
-                           src={project.image}
-                           alt={project.title}
-                           fill
-                           className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                        />
+                        <div className="relative w-full h-64 md:h-80">
+                           <Image
+                              src={project.image}
+                              alt={project.title}
+                              fill
+                              className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                           />
+                        </div>
+
+                        <div className="absolute bottom-4 left-4 right-4 z-40 flex items-center justify-between opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                           <h3 className="text-white font-semibold">
+                              {project.title}
+                           </h3>
+                           <Link
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="z-40"
+                           >
+                              <div className="p-3 bg-green-300 rounded-full shadow-md">
+                                 <FaArrowRight className="text-blue-900" />
+                              </div>
+                           </Link>
+                        </div>
                      </div>
-
-                     <div className="absolute bottom-4 left-4 right-4 z-40 flex items-center justify-between opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 className="text-white font-semibold">
-                           {project.title}
-                        </h3>
-                        <Link
-                           href={project.link}
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           className="z-40"
-                        >
-                           <div className="p-3 bg-green-300 rounded-full shadow-md">
-                              <FaArrowRight className="text-blue-900" />
-                           </div>
-                        </Link>
-                     </div>
-                  </div>
+                  </FadeUpAnimation>
                ))}
             </div>
             <div className="py-16">
