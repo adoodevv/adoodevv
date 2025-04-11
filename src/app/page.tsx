@@ -8,7 +8,7 @@ import { TbReportSearch } from "react-icons/tb";
 import { FaLaptopCode } from "react-icons/fa";
 import Image from "next/image";
 import { useState } from 'react';
-import CountUpNumber from "@/components/CountUpNUmber";
+import CountUpNumber from "@/components/CountUpNumber";
 import FadeUpAnimation from "@/components/FadeUp";
 
 const stats = [

@@ -3,6 +3,10 @@ import Profile from "@/components/Profile";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image"
 
+export const metadata = {
+   title: 'Contact | adoodevv',
+}
+
 const Contact = () => {
    return (
       <div className="container mx-auto min-h-screen">

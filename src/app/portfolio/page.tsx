@@ -4,6 +4,10 @@ import Footer from "@/components/Footer";
 import { FaArrowRight } from "react-icons/fa";
 import FadeUpAnimation from "@/components/FadeUp";
 
+export const metadata = {
+   title: 'Portfolio | adoodevv',
+}
+
 const projects = [
    {
       title: "YARA Website​",

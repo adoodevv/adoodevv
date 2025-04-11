@@ -5,7 +5,10 @@ import Skills from "@/components/Skills";
 import { FaArrowRight, FaCircle } from "react-icons/fa";
 import Link from "next/link";
 import FadeUpAnimation from "@/components/FadeUp";
-import { Fade } from "hamburger-react";
+
+export const metadata = {
+   title: 'Resume | adoodevv',
+}
 
 const softSkills = [
    "Team Player", "Communication", "Leadership", "Curiosity", "Decision Making", "Problem Solving", "Time Management"
