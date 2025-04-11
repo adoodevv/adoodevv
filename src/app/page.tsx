@@ -14,10 +14,10 @@ import FadeUpAnimation from "@/components/FadeUp";
 const stats = [
   { number: 50, plus: "+", label: "STUDENTS TAUGHT" },
   { number: 4, plus: "+", label: "PROJECTS COMPLETED" },
-  { number: 3, plus: "", label: "TEAMS COACHED" },
   { number: 6, plus: "+", label: "ROBOTS DESIGNED" },
   { number: 2, plus: "", label: "WORKSHOPS CONDUCTED" },
   { number: 5, plus: "+", label: "WEBSITES BUILT" },
+  { number: 3, plus: "", label: "TEAMS COACHED" },
 ];
 
 const testimonials = [
@@ -75,7 +75,7 @@ export default function Home() {
               {stats.map((stat, index) => (
                 <FadeUpAnimation key={index} delay={index * 0.1}>
                   <div className="p-4 rounded-lg border-b-2 border-blue-900 bg-neutral-900 flex flex-col items-center justify-center">
-                    <h2 className="flex items-center text-3xl font-bold py-4 px-24"><CountUpNumber endValue={stat.number} duration={1000} /><span className="text-blue-900 ml-1">{stat.plus}</span></h2>
+                    <span className="flex items-center text-3xl font-bold py-4 px-24"><CountUpNumber endValue={stat.number} duration={1000} /><span className="text-blue-900 ml-1">{stat.plus}</span></span>
                     <div className="border-b border-white w-4/5 opacity-20"></div>
                     <p className="py-4 font-semibold text-center">{stat.label}</p>
                   </div>

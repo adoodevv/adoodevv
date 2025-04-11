@@ -33,9 +33,9 @@ const CountUpNumber: FC<Props> = ({ endValue, duration }) => {
    }, [endValue, duration]);
 
    return (
-      <p className="md:font-bold font-medium text-lg xl:text-5xl">
+      <h3 className="font-bold text-2xl md:text-3xl">
          {Math.round(count)}
-      </p>
+      </h3>
    )
 }
 
