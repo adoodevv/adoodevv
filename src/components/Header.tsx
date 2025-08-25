@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Squash as HamburgerSquash } from 'hamburger-react';
 import { ArrowDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const Header = () => {
    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,6 +25,13 @@ const Header = () => {
       <header className="container flex justify-between fixed mx-auto px-4 md:px-12 py-3 items-center inset-x-0 md:top-4 lg:rounded-xl bg-black md:bg-black/10 md:border border-white/10 backdrop-blur-sm z-50 h-20 montserrat-p">
          <div className="text-2xl text-white font-semibold">
             <Link href="/">
+               {/* <Image
+                  src="/adoodevv.png"
+                  alt="Logo"
+                  width={40}
+                  height={40}
+                  className="inline-block mr-2"
+               /> */}
                adoo<span className="text-blue-900">devv</span>
             </Link>
          </div>

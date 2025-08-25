@@ -15,9 +15,14 @@ const projects = [
       link: "https://www.github.com/adoodevv/yara-website",
    },
    {
-      title: "WRO 2025 Future Engineers​",
-      image: "/portfolio/sojourner.jpg",
-      link: "https://www.github.com/codecrafters/pathfinders",
+      title: "Taskio Task Matching App",
+      image: "/portfolio/taskio.png",
+      link: "https://github.com/adoodevv/taskio",
+   },
+   {
+      title: "Offgrid Labs Website​",
+      image: "/portfolio/offgrid.png",
+      link: "https://www.github.com/adoodevv/offgrid-labs",
    },
    {
       title: "Elysian Treats Website​",
@@ -35,19 +40,19 @@ const projects = [
       link: "https://www.github.com/adoodevv/movie-dashboard",
    },
    {
-      title: "Precision Robot​",
-      image: "/portfolio/robot.jpg",
-      link: "https://www.github.com/adoodevv/scout",
-   },
-   {
-      title: "Offgrid Labs Website​",
-      image: "/portfolio/offgrid.png",
-      link: "https://www.github.com/adoodevv/offgrid-labs",
-   },
-   {
       title: "Hotel Management App​",
       image: "/portfolio/hotel.png",
-      link: "https://www.github.com/adoodevv/hotel-management-app",
+      link: "https://www.github.com/adoodevv/hotel-management",
+   },
+   {
+      title: "E-commerce Website​",
+      image: "/portfolio/skabba.png",
+      link: "https://www.github.com/adoodevv/skabba",
+   },
+   {
+      title: "Ecochain Website​",
+      image: "/portfolio/ecochain.png",
+      link: "https://www.github.com/adoodevv/eco-chain",
    },
 ];
 
@@ -75,13 +80,13 @@ const Portfolio = () => {
          <div className="container mx-auto px-4 z-20 absolute top-[40%]">
             <div className="grid md:grid-cols-3 gap-4">
                {projects.map((project, index) => (
-                  <FadeUpAnimation key={index} delay={index * 0.1}>
+                  <div key={index}>
                      <div className="relative group bg-neutral-900 rounded-lg overflow-hidden">
                         <div className="absolute inset-0 bg-blue-900/80 scale-y-0 group-hover:scale-y-25 origin-bottom transition-transform duration-500 z-30 pointer-events-none md:block hidden rounded-b-xl" />
 
                         <div className="md:hidden absolute bottom-0 left-0 w-full h-1/4 bg-blue-900/80 z-30 rounded-b-lg pointer-events-none" />
 
-                        <div className="relative w-full h-64 md:h-80">
+                        <div className="relative w-full h-48 md:h-54">
                            <Image
                               src={project.image}
                               alt={project.title}
@@ -90,7 +95,7 @@ const Portfolio = () => {
                            />
                         </div>
 
-                        <div className="absolute bottom-4 left-4 right-4 z-40 flex items-center justify-between opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute md:bottom-2 bottom-1 left-4 right-4 z-40 flex items-center justify-between opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                            <h3 className="text-white font-semibold">
                               {project.title}
                            </h3>
@@ -106,7 +111,7 @@ const Portfolio = () => {
                            </Link>
                         </div>
                      </div>
-                  </FadeUpAnimation>
+                  </div>
                ))}
             </div>
             <div className="py-16">

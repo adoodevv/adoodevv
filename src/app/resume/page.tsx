@@ -28,17 +28,6 @@ const professionalExperience = [
       link: "https://www.mikrobotacademy.com/"
    },
    {
-      title: "Robotics Project Lead",
-      company: "KNUST DIPPER Lab",
-      location: "KNUST - Kumasi",
-      date: "March 2025 - Date",
-      description: [
-         "Leading development of an autonomous precision farming robot using ROS (Robot Operating System), reducing manual labor by 40% through automated planting, watering, and soil monitoring.",
-         "Designing and implementing SLAM (Simultaneous Localization and Mapping) for real-time navigation across 5+ acre test fields, achieving 92% path accuracy in unstructured environments.",
-         "Leading a cross-functional team of 1 in mechanical and software integration each, delivering a functional prototype 3 months ahead of schedule."
-      ]
-   },
-   {
       title: "Web Developer",
       company: "Young Africans Research Academy",
       location: "Remote",

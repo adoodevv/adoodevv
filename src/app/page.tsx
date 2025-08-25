@@ -12,8 +12,8 @@ import CountUpNumber from "@/components/CountUpNumber";
 import FadeUpAnimation from "@/components/FadeUp";
 
 const stats = [
-  { number: 50, plus: "+", label: "STUDENTS TAUGHT" },
-  { number: 4, plus: "+", label: "PROJECTS COMPLETED" },
+  { number: 70, plus: "+", label: "STUDENTS TAUGHT" },
+  { number: 8, plus: "+", label: "PROJECTS COMPLETED" },
   { number: 6, plus: "+", label: "ROBOTS DESIGNED" },
   { number: 2, plus: "", label: "WORKSHOPS CONDUCTED" },
   { number: 5, plus: "+", label: "WEBSITES BUILT" },
