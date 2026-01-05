@@ -37,6 +37,22 @@ const tools = [
    {
       id: 9,
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ros/ros-original.svg",
+   },
+   {
+      id: 10,
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg"
+   },
+   {
+      id: 11,
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fusion/fusion-original.svg"
+   },
+   {
+      id: 12,
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+   },
+   {
+      id: 13,
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg"
    }
 ];
 
@@ -47,7 +63,7 @@ const Skills = () => {
             <div className="grid grid-cols-3 md:grid-cols-5 gap-4 place-items-center">
                {tools.map((tool) => (
                   <FadeUpAnimation key={tool.id} delay={tool.id * 0.1}>
-                     <div className="p-4 transition-all duration-300 animate-wiggle">
+                     <div className="p-4 transition-all duration-300 animate-wiggle hover:scale-110 transition-transform duration-300">
                         <Image
                            width={50}
                            height={50}

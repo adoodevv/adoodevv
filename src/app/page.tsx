@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useState } from 'react';
 import CountUpNumber from "@/components/CountUpNumber";
 import FadeUpAnimation from "@/components/FadeUp";
+import Skills from "@/components/Skills";
 
 const stats = [
   { number: 70, plus: "+", label: "STUDENTS TAUGHT" },
@@ -91,6 +92,10 @@ export default function Home() {
                   Currently exploring the interesting realm of Robot Operating System(ROS) and learning a little backend development.
                 </p>
               </FadeUpAnimation>
+            </div>
+            <div>
+              <h2 className="py-8">MY TOOLS & SKILLS</h2>
+              <Skills />
             </div>
             <div className="relative">
               <h2 className="py-8 md:py-0 md:pt-8">TESTIMONIALS</h2>
