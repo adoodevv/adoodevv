@@ -12,22 +12,7 @@ const projects = [
    {
       title: "YARA Website​",
       image: "/portfolio/yara.png",
-      link: "https://www.github.com/adoodevv/yara-website",
-   },
-   {
-      title: "Taskio Task Matching App",
-      image: "/portfolio/taskio.png",
-      link: "https://github.com/adoodevv/taskio",
-   },
-   {
-      title: "Offgrid Labs Website​",
-      image: "/portfolio/offgrid.png",
-      link: "https://www.github.com/adoodevv/offgrid-labs",
-   },
-   {
-      title: "Elysian Treats Website​",
-      image: "/portfolio/elysian.png",
-      link: "https://www.github.com/adoodevv/elysian-treats",
+      link: "https://yara-website-kappa.vercel.app/",
    },
    {
       title: "Differential robot​",
@@ -35,24 +20,49 @@ const projects = [
       link: "https://www.github.com/adoodevv/diff_drive_robot",
    },
    {
+      title: "Mind2Matter Website",
+      image: "/portfolio/mind2matter.png",
+      link: "https://mind2matter.vercel.app/",
+   },
+   {
+      title: "Get Up Let's Pray",
+      image: "/portfolio/getupletspray.png",
+      link: "https://getupletspray.vercel.app/",
+   },
+   {
+      title: "Offgrid Labs Website​",
+      image: "/portfolio/offgrid.png",
+      link: "https://offgrid-labs-woad.vercel.app/",
+   },
+   {
+      title: "Mikrobot Academy Website",
+      image: "/portfolio/mikrobot.png",
+      link: "https://mikrobotacademy.com/",
+   },
+   {
+      title: "AIC Real Estates​",
+      image: "/portfolio/aic.png",
+      link: "https://aicrealestates.com/",
+   },
+   {
+      title: "Taskio Task Matching App",
+      image: "/portfolio/taskio.png",
+      link: "https://taskio-mu.vercel.app/",
+   },
+   {
+      title: "Elysian Treats Website​",
+      image: "/portfolio/elysian.png",
+      link: "https://elysian-treats.vercel.app/",
+   },
+   {
       title: "Movie Dashboard​",
       image: "/portfolio/movie.png",
-      link: "https://www.github.com/adoodevv/movie-dashboard",
-   },
-   {
-      title: "Hotel Management App​",
-      image: "/portfolio/hotel.png",
-      link: "https://www.github.com/adoodevv/hotel-management",
-   },
-   {
-      title: "E-commerce Website​",
-      image: "/portfolio/skabba.png",
-      link: "https://www.github.com/adoodevv/skabba",
+      link: "https://adoodevv-exxmon.vercel.app/",
    },
    {
       title: "Ecochain Website​",
       image: "/portfolio/ecochain.png",
-      link: "https://www.github.com/adoodevv/eco-chain",
+      link: "https://www.myceliumlabs.xyz/",
    },
 ];
 
@@ -80,7 +90,7 @@ const Portfolio = () => {
          <div className="container mx-auto px-4 z-20 absolute top-[40%]">
             <div className="grid md:grid-cols-3 gap-4">
                {projects.map((project, index) => (
-                  <div key={index}>
+                  <Link href={project.link} target="_blank" rel="noopener noreferrer" key={index}>
                      <div className="relative group bg-neutral-900 rounded-lg overflow-hidden">
                         <div className="absolute inset-0 bg-blue-900/80 scale-y-0 group-hover:scale-y-25 origin-bottom transition-transform duration-500 z-30 pointer-events-none md:block hidden rounded-b-xl" />
 
@@ -99,19 +109,13 @@ const Portfolio = () => {
                            <h3 className="text-white font-semibold">
                               {project.title}
                            </h3>
-                           <Link
-                              href={project.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="z-40"
-                           >
-                              <div className="p-3 bg-green-300 rounded-full shadow-md">
-                                 <FaArrowRight className="text-blue-900" />
-                              </div>
-                           </Link>
+
+                           <div className="p-3 bg-green-300 rounded-full shadow-md">
+                              <FaArrowRight className="text-blue-900" />
+                           </div>
                         </div>
                      </div>
-                  </div>
+                  </Link>
                ))}
             </div>
             <div className="py-16">

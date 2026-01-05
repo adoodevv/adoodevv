@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaXTwitter, FaHashnode } from "react-icons/fa6";
 
 export default function Footer() {
@@ -12,32 +12,37 @@ export default function Footer() {
                </p>
             </div>
             {/* Social Media Icons */}
-            <div className="flex space-x-4 items-center">
+            <div className="flex space-x-6 items-center">
                <Link href="https://www.github.com/adoodevv/"
                   target="_blank"
                   rel="noopener noreferrer">
-                  <FaGithub className="h-5 w-5 text-white/50" />
+                  <FaGithub className="h-5 w-5 text-white/50 hover:text-white transition-colors duration-300" />
                </Link>
                <Link href="https://twitter.com/adoodevv/"
                   target="_blank"
                   rel="noopener noreferrer">
-                  <FaXTwitter className="h-5 w-5 text-white/50" />
+                  <FaXTwitter className="h-5 w-5 text-white/50 hover:text-white transition-colors duration-300" />
                </Link>
                <Link href="https://hashnode.com/@adoodevv/"
                   className="text-gray-400 hover:text-white"
                   target="_blank"
                   rel="noopener noreferrer">
-                  <FaHashnode className="h-5 w-5 text-white/50" />
+                  <FaHashnode className="h-5 w-5 text-white/50 hover:text-white transition-colors duration-300" />
                </Link>
                <Link href="https://instagram.com/adoodevv/"
                   target="_blank"
                   rel="noopener noreferrer">
-                  <FaInstagram className="h-5 w-5 text-white/50" />
+                  <FaInstagram className="h-5 w-5 text-white/50 hover:text-white transition-colors duration-300" />
+               </Link>
+               <Link href="https://www.linkedin.com/in/jonathan-adoo/"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <FaLinkedinIn className="h-5 w-5 text-white/50 hover:text-white transition-colors duration-300" />
                </Link>
                <Link href="https://www.youtube.com/@adoodevv/"
                   target="_blank"
                   rel="noopener noreferrer">
-                  <FaYoutube className="h-5 w-5 text-white/50" />
+                  <FaYoutube className="h-5 w-5 text-white/50 hover:text-white transition-colors duration-300" />
                </Link>
             </div>
          </div>

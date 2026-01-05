@@ -1,11 +1,11 @@
 import TypingAnimation from "@/components/TypingAnimation";
 import Image from "next/image";
 import Link from "next/link";
-import { FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaXTwitter, FaHashnode } from "react-icons/fa6";
 import { CiMail } from "react-icons/ci";
 
-const work = ["I'M A ROBOTICIST", "I'M A FRONTEND WEB DEVELOPER", "I'M A TUTOR", "I LOVE F1"];
+const work = ["I'M A ROBOTICIST", "I'M A WEB DEVELOPER", "I'M A TUTOR", "I LOVE F1"];
 
 const Profile = () => {
    return (
@@ -31,6 +31,7 @@ const Profile = () => {
             <Link href="https://x.com/adoodevv/"><FaXTwitter className="w-5 h-5" /></Link>
             <Link href="https://github.com/adoodevv/"><FaGithub className="w-5 h-5" /></Link>
             <Link href="https://instagram.com/adoodevv/"><FaInstagram className="w-5 h-5" /></Link>
+            <Link href="https://www.linkedin.com/in/jonathan-adoo/"><FaLinkedinIn className="w-5 h-5" /></Link>
             <Link href="https://hashnode.com/@adoodevv/"><FaHashnode className="w-5 h-5" /></Link>
             <Link href="https://www.youtube.com/@adoodevv/"><FaYoutube className="w-5 h-5" /></Link>
          </div>

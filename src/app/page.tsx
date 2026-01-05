@@ -15,14 +15,14 @@ const stats = [
   { number: 70, plus: "+", label: "STUDENTS TAUGHT" },
   { number: 8, plus: "+", label: "PROJECTS COMPLETED" },
   { number: 6, plus: "+", label: "ROBOTS DESIGNED" },
-  { number: 2, plus: "", label: "WORKSHOPS CONDUCTED" },
+  { number: 4, plus: "", label: "WORKSHOPS CONDUCTED" },
   { number: 5, plus: "+", label: "WEBSITES BUILT" },
   { number: 3, plus: "", label: "TEAMS COACHED" },
 ];
 
 const testimonials = [
   { name: "Dr. Kwame Oteng-Gyasi", image: "/people/kog.jpg", position: "Senior Lecturer, KNUST", feedback: "Jonathan has a keen eye for detail, a valuable asset to any team." },
-  { name: "Dr. Ing. Michael Wilson", image: "/people/mwilson.jpg", position: "Head of Electronics Division, CSIR-INSTI", feedback: "I was excited to work with Jonathan and get to work on a project I've envisioned for years. He was a pleasure to work with and I can't recommend him enough." },
+  { name: "Dr. Ing. Michael Wilson", image: "/people/mwilson.jpg", position: "Head of Electronics Division, CSIR-INSTI", feedback: "I've known Jonathan since his early days in grade school when I first taught him robotics. Watching him grow into an innovative and dedicated engineer has been incredibly rewarding." },
 ];
 
 const myServices = [
@@ -86,7 +86,7 @@ export default function Home() {
               <h2 className="py-8">MY STORY</h2>
               <FadeUpAnimation delay={0.1}>
                 <p className="p-4 rounded-lg border-b-2 border-blue-900 bg-neutral-900">
-                  I'm a third-year Computer Engineering student with a passion for bringing ideas to life with technology.
+                  I'm a fourth-year Computer Engineering student with a passion for bringing ideas to life with technology.
                   As a natural project leader, I combine my technical expertise in robotics with frontend development to create innovative solutions.
                   Currently exploring the interesting realm of Robot Operating System(ROS) and learning a little backend development.
                 </p>
@@ -104,7 +104,6 @@ export default function Home() {
                           alt={testimonials[activeIndex].name}
                           width={256}
                           height={256}
-                          priority
                         />
                       </div>
                       <h2 className="font-bold text-lg md:text-xl">{testimonials[activeIndex].name}</h2>

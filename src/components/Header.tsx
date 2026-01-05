@@ -17,7 +17,6 @@ const Header = () => {
    const navItems = [
       { href: '/', label: 'HOME' },
       { href: '/portfolio', label: 'PORTFOLIO' },
-      { href: '/resume', label: 'RESUME' },
       { href: '/contact', label: 'CONTACT' },
    ];
 
@@ -55,10 +54,14 @@ const Header = () => {
                </Link>
             ))}
 
-            <button className="hidden text-white font-bold md:flex items-center bg-blue-900 px-4 py-2 rounded-lg hover:-translate-y-1 transition-all duration-500">
-               DOWNLOAD CV
+            <a
+               href="/jonathan-darko-adoo.pdf"
+               download
+               className="hidden text-white font-bold md:flex items-center bg-blue-900 px-4 py-2 rounded-lg hover:-translate-y-1 transition-all duration-500"
+            >
+               RESUME
                <ArrowDown className="w-4 h-4 ml-2" />
-            </button>
+            </a>
          </div>
 
          {/* Mobile Menu Button */}
@@ -93,9 +96,9 @@ const Header = () => {
                            {item.label}
                         </Link>
                      ))}
-                     <button className="w-2/3 text-white text-center px-3 py-2 rounded-lg bg-blue-900">
-                        DOWNLOAD CV
-                     </button>
+                     <a href="/jonathan-darko-adoo.pdf" download className="w-2/3 text-white text-center px-3 py-2 rounded-lg bg-blue-900">
+                        RESUME
+                     </a>
                   </div>
                </motion.div>
             )}
