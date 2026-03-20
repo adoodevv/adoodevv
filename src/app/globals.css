@@ -15,14 +15,18 @@
 }
 
 :root {
-  --background: #000000;
-  --text: #ffffff;
+  --primary: #006366;
+  --secondary: #DAE3BB;
+  --accent: #AEBE89;
+  --background: #FCFCF7;
+  --text: #1a1a1a;
+  --text-muted: #555555;
 }
 
 body {
   background: var(--background);
   color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 h1 {
@@ -60,16 +64,7 @@ p {
   font-style: normal;
 }
 
-input,
-label,
-textarea,
-select {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
+/* Typing animation */
 .typing-animation {
   display: inline-flex;
   align-items: center;
@@ -87,35 +82,32 @@ select {
 }
 
 @keyframes blink-animation {
-
   0%,
   100% {
     opacity: 1;
   }
-
   50% {
     opacity: .2;
   }
 }
 
+/* Section spacing */
+.section-padding {
+  padding: 5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 6rem 2rem;
+  }
+}
+
+/* Tool icon hover */
 @keyframes wiggle {
-
-  0%,
-  100% {
-    transform: rotate(-3deg);
-  }
-
-  25% {
-    transform: rotate(5deg);
-  }
-
-  50% {
-    transform: rotate(-5deg);
-  }
-
-  75% {
-    transform: rotate(2deg);
-  }
+  0%, 100% { transform: rotate(-3deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(2deg); }
 }
 
 .animate-wiggle {
