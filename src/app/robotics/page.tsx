@@ -3,7 +3,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import FadeUpAnimation from "@/components/FadeUp";
 import { FaGithub, FaArrowRight, FaYoutube } from "react-icons/fa";
-import { Cpu, Radio, Eye, Wrench, Navigation, Zap } from "lucide-react";
+import { Cpu, Radio, Eye, Wrench, Navigation, Zap, CornerDownRight } from "lucide-react";
 
 export const metadata = {
   title: "Robotics | adoodevv",
@@ -32,6 +32,28 @@ const roboticsProjects = [
     github: null,
     live: "https://mikrobotacademy.com/",
     status: "Live",
+  },
+  {
+    title: "Self Balancing Robot",
+    subtitle: "Arduino · C++ · Python",
+    description:
+      "A self-balancing robot built with Arduino and C++. The robot features a custom PID controller and complimentary filter for IMU data.",
+    image: "/portfolio/self_balancing_robot.png",
+    tags: ["Arduino", "C++", "Python"],
+    github: "https://github.com/adoodevv/self_balancing_robot",
+    live: null,
+    status: "In Progress",
+  },
+  {
+    title: "Self-Driving Car - World Robot Olympiad (WRO) 2025",
+    subtitle: "Arduino · C++ · Python · ROS",
+    description:
+      "A self-driving car built for the World Robot Olympiad (WRO) 2025, my team and I built a robot that can navigate an obstacle course with sensors and a camera.",
+    image: "/portfolio/self_driving_car.jpg",
+    tags: ["Arduino", "C++", "Python", "ROS", "OpenCV"],
+    github: "https://github.com/codecraftersknust/team44",
+    live: null,
+    status: "Completed",
   },
 ];
 
@@ -281,7 +303,7 @@ export default function RoboticsPage() {
               {learning.map((l, i) => (
                 <FadeUpAnimation key={l.item} delay={i * 0.08}>
                   <div className="flex items-center gap-4 bg-white rounded-xl border border-[#DAE3BB]/50 px-6 py-4">
-                    <span className="w-2 h-2 rounded-full bg-[#AEBE89] shrink-0" />
+                    <CornerDownRight className="w-4 h-4 text-[#006366]" />
                     <span className="text-sm font-semibold text-[#444]">{l.item}</span>
                   </div>
                 </FadeUpAnimation>

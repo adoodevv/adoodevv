@@ -75,165 +75,98 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#006366]/8 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3 pointer-events-none" />
 
         <div className="container mx-auto px-6 md:px-12 lg:px-20 pt-32 pb-24 relative z-10">
-          <div className="grid md:grid-cols-5 gap-10 lg:gap-16 items-center">
+          <motion.div
+            className="flex flex-col items-center text-center space-y-7"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#006366]/10 border border-[#006366]/20">
+              <span className="w-2 h-2 rounded-full bg-[#AEBE89] animate-pulse" />
+              <span className="text-[11px] font-bold text-[#006366] tracking-widest">OPEN TO OPPORTUNITIES</span>
+            </div>
 
-            {/* Left – text */}
-            <motion.div
-              className="md:col-span-3 space-y-7"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#006366]/10 border border-[#006366]/20">
-                <span className="w-2 h-2 rounded-full bg-[#AEBE89] animate-pulse" />
-                <span className="text-[11px] font-bold text-[#006366] tracking-widest">OPEN TO OPPORTUNITIES</span>
+            <div>
+              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[1.0] text-[#1a1a1a]">
+                Hi, I&apos;m<br />
+                <span className="text-[#006366]">Jonathan.</span>
+              </h1>
+              <div className="text-sm md:text-base font-bold text-[#AEBE89] h-6 tracking-widest mt-4">
+                <TypingAnimation
+                  items={roles}
+                  typingSpeed={75}
+                  deletingSpeed={40}
+                  delayBetweenItems={2000}
+                />
               </div>
+            </div>
 
-              <div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl leading-[1.08] text-[#1a1a1a] mb-4">
-                  Hi, I&apos;m<br />
-                  <span className="text-[#006366]">Jonathan.</span>
-                </h1>
-                <div className="text-sm md:text-base font-bold text-[#AEBE89] h-6 tracking-widest">
-                  <TypingAnimation
-                    items={roles}
-                    typingSpeed={75}
-                    deletingSpeed={40}
-                    delayBetweenItems={2000}
-                  />
-                </div>
-              </div>
+            <p className="text-[#555] text-base md:text-lg max-w-xl leading-relaxed">
+              Computer Engineering student building at the intersection of
+              <span className="font-semibold text-[#006366]"> robotics</span> and
+              <span className="font-semibold text-[#006366]"> software engineering</span>.
+              I turn complex ideas into real, working solutions.
+            </p>
 
-              <p className="text-[#555] text-base md:text-lg max-w-lg leading-relaxed">
-                Computer Engineering student building at the intersection of
-                <span className="font-semibold text-[#006366]"> robotics</span> and
-                <span className="font-semibold text-[#006366]"> web development</span>.
-                I turn complex ideas into real, working solutions.
-              </p>
+            {/* Quick facts */}
+            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs font-semibold text-[#666]">
+              <span className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#006366]" /> Accra, Ghana
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Cpu className="w-3.5 h-3.5 text-[#006366]" /> Computer Engineering
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5 text-[#006366]" /> Available remotely
+              </span>
+            </div>
 
-              {/* Quick facts */}
-              <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-[#666]">
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#006366]" /> Accra, Ghana
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Cpu className="w-3.5 h-3.5 text-[#006366]" /> Computer Engineering
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Globe className="w-3.5 h-3.5 text-[#006366]" /> Available remotely
-                </span>
-              </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="/jonathan-darko-adoo.pdf"
+                download
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#006366] text-white font-bold text-xs tracking-wide rounded-lg hover:bg-[#00514f] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
+              >
+                VIEW RESUME
+                <ArrowDown className="w-4 h-4" />
+              </a>
+              <Link
+                href="mailto:adoojonathan412@gmail.com"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 border-2 border-[#006366] text-[#006366] font-bold text-xs tracking-wide rounded-lg hover:bg-[#006366] hover:text-white hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <Mail className="w-4 h-4" />
+                GET IN TOUCH
+              </Link>
+            </div>
 
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="/jonathan-darko-adoo.pdf"
-                  download
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#006366] text-white font-bold text-xs tracking-wide rounded-lg hover:bg-[#00514f] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
-                >
-                  DOWNLOAD RESUME
-                  <ArrowDown className="w-4 h-4" />
-                </a>
+            {/* Social */}
+            <div className="flex items-center justify-center gap-4 pt-1">
+              <span className="text-[10px] text-[#bbb] font-bold tracking-widest shrink-0">FIND ME ON</span>
+              <div className="h-px w-8 bg-[#ddd]" />
+              {socialLinks.map((social) => (
                 <Link
-                  href="mailto:adoojonathan412@gmail.com"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-[#006366] text-[#006366] font-bold text-xs tracking-wide rounded-lg hover:bg-[#006366] hover:text-white hover:-translate-y-0.5 transition-all duration-300"
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#bbb] hover:text-[#006366] transition-colors duration-300"
+                  aria-label={social.label}
                 >
-                  <Mail className="w-4 h-4" />
-                  GET IN TOUCH
+                  <social.icon className="w-4.5 h-4.5" />
                 </Link>
-              </div>
-
-              {/* Social */}
-              <div className="flex items-center gap-4 pt-1">
-                <span className="text-[10px] text-[#bbb] font-bold tracking-widest shrink-0">FIND ME ON</span>
-                <div className="h-px w-8 bg-[#ddd]" />
-                {socialLinks.map((social) => (
-                  <Link
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#bbb] hover:text-[#006366] transition-colors duration-300"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-4.5 h-4.5" />
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Right – profile + floating badges */}
-            <motion.div
-              className="md:col-span-2 flex justify-center"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            >
-              <div className="relative flex justify-center items-center py-12 px-14">
-                {/* Glow */}
-                <div className="absolute inset-8 bg-[#006366]/10 rounded-full blur-3xl" />
-
-                {/* Profile image */}
-                <div className="relative w-60 h-60 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-[#DAE3BB] shadow-2xl z-10">
-                  <Image
-                    src="/profile.png"
-                    alt="Jonathan Darko Adoo"
-                    fill
-                    className="object-cover"
-                    priority
-                    loading="eager"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
-
-                {/* Badge: top-right — React */}
-                <motion.div
-                  className="absolute top-2 right-0 bg-white border border-[#DAE3BB] shadow-lg rounded-xl px-3.5 py-2 flex items-center gap-2 z-20"
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <span className="text-xs font-bold text-[#1a1a1a]">React</span>
-                </motion.div>
-
-                {/* Badge: left — ROS */}
-                <motion.div
-                  className="absolute left-0 top-[38%] bg-[#006366] shadow-lg rounded-xl px-3.5 py-2 flex items-center gap-2 z-20"
-                  animate={{ y: [0, 9, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                >
-                  <Terminal className="w-3.5 h-3.5 text-[#AEBE89]" />
-                  <span className="text-xs font-bold text-white">ROS 2</span>
-                </motion.div>
-
-                {/* Badge: bottom-right — Python */}
-                <motion.div
-                  className="absolute bottom-4 right-0 bg-[#DAE3BB] shadow-lg rounded-xl px-3.5 py-2 z-20"
-                  animate={{ y: [0, -7, 0] }}
-                  transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
-                >
-                  <span className="text-xs font-bold text-[#006366]">Python</span>
-                </motion.div>
-
-                {/* Badge: bottom-left — C++ */}
-                <motion.div
-                  className="absolute bottom-2 left-1 bg-white border border-[#DAE3BB] shadow-lg rounded-xl px-3.5 py-2 z-20"
-                  animate={{ y: [0, 7, 0] }}
-                  transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
-                >
-                  <span className="text-xs font-bold text-[#1a1a1a]">C++</span>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           animate={{ opacity: [0.3, 1, 0.3] }}
           transition={{ duration: 2.5, repeat: Infinity }}
         >
           <span className="text-[10px] text-[#aaa] tracking-widest font-bold">SCROLL</span>
-          <div className="w-px h-10 bg-gradient-to-b from-[#aaa] to-transparent" />
+          <div className="w-px md:h-10 h-6 bg-gradient-to-b from-[#aaa] to-transparent" />
         </motion.div>
       </section>
 
@@ -418,14 +351,14 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4 max-w-md mx-auto">
               <Link
                 href="mailto:adoojonathan412@gmail.com"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#DAE3BB] text-[#006366] font-bold text-xs tracking-wide rounded-lg hover:-translate-y-0.5 transition-all duration-300"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#DAE3BB] text-[#006366] font-bold text-xs tracking-wide rounded-lg hover:-translate-y-0.5 transition-all duration-300"
               >
                 <Mail className="w-4 h-4" />
                 SAY HELLO
               </Link>
               <Link
                 href="/projects"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-[#DAE3BB]/50 text-[#DAE3BB] font-bold text-xs tracking-wide rounded-lg hover:-translate-y-0.5 transition-all duration-300"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-[#DAE3BB]/50 text-[#DAE3BB] font-bold text-xs tracking-wide rounded-lg hover:-translate-y-0.5 transition-all duration-300"
               >
                 VIEW MY WORK
                 <FaArrowRight className="w-3.5 h-3.5" />

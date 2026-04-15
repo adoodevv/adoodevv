@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "adoodevv | Personal Portfolio",
+  title: "Jonathan Darko Adoo | Personal Portfolio",
   description: "Personal Portfolio",
 };
 

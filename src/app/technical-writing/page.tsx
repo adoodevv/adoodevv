@@ -25,18 +25,8 @@ const articles = [
     excerpt:
       "An honest breakdown of the features that make Next.js the default choice for production web projects - App Router, server components, image optimisation, and more.",
     tags: ["Next.js", "React", "Web Development"],
-    readTime: "6 min read",
-    date: "Nov 2024",
-    href: "https://hashnode.com/@adoodevv",
-    featured: false,
-  },
-  {
-    title: "How I Juggled School, Side Projects, and a Tech Career",
-    excerpt:
-      "Practical lessons from four years of being a Computer Engineering student while building products, teaching robotics, and freelancing as a developer.",
-    tags: ["Career", "Student Life", "Productivity"],
     readTime: "5 min read",
-    date: "May 2024",
+    date: "Nov 2024",
     href: "https://hashnode.com/@adoodevv",
     featured: false,
   },
