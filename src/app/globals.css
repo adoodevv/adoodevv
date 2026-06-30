@@ -1,120 +1,52 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Montserrat";
-  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url('/fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: italic;
-}
-
 :root {
-  --primary: #006366;
-  --secondary: #DAE3BB;
-  --accent: #AEBE89;
-  --background: #FCFCF7;
-  --text: #1a1a1a;
-  --text-muted: #555555;
+  --background: #000000;
+  --foreground: #ffffff;
+  --text-muted: #a1a1aa;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--text-muted);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--text);
-  font-family: "Montserrat", sans-serif;
+  background-color: var(--background);
+  color: var(--text-muted);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.6;
 }
 
-h1 {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
-}
-
-h2 {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-}
-
-h3 {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--foreground);
   font-weight: 700;
-  font-style: normal;
 }
 
-.montserrat-p {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: opacity 0.15s ease;
 }
 
-p {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+a:hover {
+  opacity: 0.75;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
 }
 
-/* Typing animation */
-.typing-animation {
-  display: inline-flex;
-  align-items: center;
-}
-
-.cursor {
-  display: inline-block;
-  margin-left: 2px;
-  width: 2px;
-  animation: blink-animation 1s step-end infinite;
-}
-
-.cursor.blink {
-  animation: blink-animation 1s step-end infinite;
-}
-
-@keyframes blink-animation {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: .2;
-  }
-}
-
-/* Section spacing */
-.section-padding {
-  padding: 5rem 1rem;
-}
-
-@media (min-width: 768px) {
-  .section-padding {
-    padding: 6rem 2rem;
-  }
-}
-
-/* Tool icon hover */
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-3deg); }
-  25% { transform: rotate(5deg); }
-  50% { transform: rotate(-5deg); }
-  75% { transform: rotate(2deg); }
-}
-
-.animate-wiggle {
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.animate-wiggle:hover {
-  animation: wiggle 0.5s ease-in-out infinite;
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
 }

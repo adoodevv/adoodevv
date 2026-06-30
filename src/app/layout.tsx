@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Jonathan Darko Adoo | Personal Portfolio",
-  description: "Personal Portfolio",
+  title: "Jonathan Adoo",
+  description: "Robotics software engineer, open-source contributor, and Computer Engineering student.",
 };
 
 export default function RootLayout({
@@ -24,14 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
+        className={`${geistSans.variable} font-sans antialiased bg-background text-muted`}
       >
-        <main className="bg-[#FCFCF7] overflow-x-hidden">
-          <Header />
-          {children}
-        </main>
+        <main className="min-h-screen">{children}</main>
       </body>
     </html>
   );
