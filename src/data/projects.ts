@@ -7,8 +7,10 @@ export type ProjectLink = {
 export type Project = {
   title: string;
   year: string;
-  description: string[];
-  images: { src: string; alt: string }[];
+  kind: "robotics" | "software";
+  stack: string[];
+  description: string;
+  image?: { src: string; alt: string };
   youtubeId?: string;
   links: ProjectLink[];
 };
@@ -17,20 +19,14 @@ export const projects: Project[] = [
   {
     title: "diff_drive_robot",
     year: "2024",
-    description: [
-      "A complete ROS 2 Jazzy simulation stack for differential drive robots in Gazebo Harmonic — URDF, lidar integration, keyboard tele-op, and launch files to get a simulated robot running out of the box. The mapping branch adds SLAM Toolbox, EKF-based sensor fusion, and RViz visualization for building maps from live laser scans.",
-      "The package has been starred by developers and robotics students worldwide as a starting point for learning autonomous navigation. I'm extending it with Nav2 integration and additional sensors for full-stack navigation tutorials.",
-    ],
-    images: [
-      {
-        src: "/portfolio/diff_drive_gazebo.png",
-        alt: "Differential drive robot simulation in Gazebo Harmonic",
-      },
-      {
-        src: "/portfolio/diff_drive_rviz.png",
-        alt: "SLAM mapping visualization in RViz",
-      },
-    ],
+    kind: "robotics",
+    stack: ["ROS 2 Jazzy", "Gazebo Harmonic", "SLAM Toolbox", "Nav2", "Python"],
+    description:
+      "A ready-to-run simulation of a two-wheeled robot that spares people the days of setup usually needed before they can drive one. It ships the whole stack — robot description, lidar, keyboard control, SLAM mapping with EKF sensor fusion, and Nav2 navigation on ROS 2 Jazzy and Gazebo Harmonic — and has become a starting point for robotics learners and students worldwide.",
+    image: {
+      src: "/portfolio/diff_drive_gazebo.png",
+      alt: "Differential drive robot simulation in Gazebo Harmonic",
+    },
     youtubeId: "QhYGT-Zu-14",
     links: [
       {
@@ -43,30 +39,19 @@ export const projects: Project[] = [
         href: "https://youtu.be/QhYGT-Zu-14",
         type: "youtube",
       },
-      {
-        label: "Mapping branch",
-        href: "https://github.com/adoodevv/diff_drive_robot/tree/mapping",
-        type: "github",
-      },
     ],
   },
   {
     title: "so101_ros2",
     year: "2026",
-    description: [
-      "A ROS 2 Jazzy stack for the SO-101 robot arm — URDF and meshes, RViz visualization, ros2_control in Gazebo Harmonic, and trajectory control for the arm and gripper in simulation. Includes a pick-and-place world and convenience launch files to go from description to simulated manipulation.",
-      "MoveIt 2 motion planning and a hardware interface for the real arm are on the roadmap. The stack is designed to integrate with the broader LeRobot ecosystem for manipulation research and imitation learning.",
-    ],
-    images: [
-      {
-        src: "/portfolio/so101_gazebo.png",
-        alt: "SO-101 follower arm in Gazebo simulation",
-      },
-      {
-        src: "/portfolio/so101_rviz.png",
-        alt: "SO-101 RViz visualization",
-      },
-    ],
+    kind: "robotics",
+    stack: ["ROS 2 Jazzy", "MoveIt 2", "ros2_control", "Gazebo Harmonic", "Python"],
+    description:
+      "A complete control stack for the SO-101 robot arm, taking it from a 3D description to picking things up in simulation. It covers the arm's model and meshes, RViz visualization, ros2_control with trajectory control for the arm and gripper, and a pick-and-place world in Gazebo Harmonic, with MoveIt 2 motion planning and a real-hardware interface on the roadmap.",
+    image: {
+      src: "/portfolio/so101_gazebo.png",
+      alt: "SO-101 follower arm in Gazebo simulation",
+    },
     youtubeId: "o6Ws_Hf_CYc",
     links: [
       {
@@ -75,34 +60,23 @@ export const projects: Project[] = [
         type: "github",
       },
       {
-        label: "MoveIt 2 motion planning Demo",
+        label: "MoveIt 2 motion planning demo",
         href: "https://youtu.be/o6Ws_Hf_CYc",
         type: "youtube",
-      },
-      {
-        label: "Gazebo simulation",
-        href: "https://github.com/adoodevv/so101_ros2/tree/main/so101_gazebo",
-        type: "github",
       },
     ],
   },
   {
     title: "Self-Driving RC Car",
     year: "2025",
-    description: [
-      "A self-driving RC car with an LiDAR sensor, Intel RealSense D435i and an NVIDIA Jetson Orin Nano. The car is capable of mapping the environment and driving autonomously with Planning and Control algorithms(PID).",
-      "This was for the World Robotics Olympiad 2025 in Ghana. The car was able to navigate through the environment and avoid obstacles autonomously.",
-    ],
-    images: [
-      {
-        src: "/portfolio/self_driving_car.jpg",
-        alt: "Self-driving RC car",
-      },
-      {
-        src: "/portfolio/self_driving_car_demo.png",
-        alt: "Self-driving RC car demo",
-      },
-    ],
+    kind: "robotics",
+    stack: ["Jetson Orin Nano", "RealSense D435i", "LiDAR", "PID control", "Python"],
+    description:
+      "A radio-controlled car rebuilt to drive itself, entered in the World Robotics Olympiad 2025 in Ghana, where it mapped the course and avoided obstacles with nobody at the controls. It fuses LiDAR with an Intel RealSense depth camera on an NVIDIA Jetson Orin Nano, and closes the loop on steering and speed with PID control.",
+    image: {
+      src: "/portfolio/self_driving_car.jpg",
+      alt: "Self-driving RC car",
+    },
     youtubeId: "ZGJbFttlH8E",
     links: [
       {
@@ -111,10 +85,45 @@ export const projects: Project[] = [
         type: "github",
       },
       {
-        label: "Self-driving RC car demo",
+        label: "Autonomous driving demo",
         href: "https://youtu.be/ZGJbFttlH8E",
         type: "youtube",
-      }
+      },
+    ],
+  },
+  {
+    title: "reservation-service",
+    year: "2026",
+    kind: "software",
+    stack: ["TypeScript", "PostgreSQL", "GiST constraints", "Docker", "CI"],
+    description:
+      "A booking service for things that can only be sold once — a room, a seat, a time slot. Taking bookings is easy; the hard part is what happens when two people claim the last one in the same millisecond. Every booking here passes through a single Postgres GiST exclusion constraint, and a load harness proves it holds rather than assuming it: zero double-bookings across 27,000 concurrent attempts, against 35,966 from an unguarded control group put under identical load.",
+    links: [
+      {
+        label: "GitHub repository",
+        href: "https://github.com/adoodevv/reservation-service",
+        type: "github",
+      },
+      {
+        label: "Benchmark results",
+        href: "https://github.com/adoodevv/reservation-service/blob/main/bench/RESULTS.md",
+        type: "github",
+      },
+    ],
+  },
+  {
+    title: "link-checker",
+    year: "2026",
+    kind: "software",
+    stack: ["Go", "net/http", "CI", "table-driven tests"],
+    description:
+      "A command-line tool in Go that crawls a website and reports the links that no longer work, built to run in CI so broken links fail a build instead of reaching visitors. Most of the real work is deciding when two URLs are the same page, which is what tells the crawler when to stop. Early days — currently sequential, with concurrency and the CI exit-code contract next.",
+    links: [
+      {
+        label: "GitHub repository",
+        href: "https://github.com/adoodevv/link-checker",
+        type: "github",
+      },
     ],
   },
 ];

@@ -1,10 +1,10 @@
+import LocalTime from "@/components/LocalTime";
+
 export default function Footer() {
   return (
-    <footer className="px-6 pb-12 pt-4">
+    <footer className="pt-4 pb-16">
       <div className="border-t border-zinc-800 pt-6">
-        <p className="text-right text-sm italic text-muted">
-          Last updated: June 2026
-        </p>
+        <LocalTime />
       </div>
     </footer>
   );

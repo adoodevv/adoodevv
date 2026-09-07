@@ -1,21 +1,15 @@
-export type Author = {
-  name: string;
-  isSelf?: boolean;
-};
-
 export type Publication = {
   title: string;
   href: string;
+  year: string;
   venue: string;
-  authors: Author[];
 };
 
 export const publications: Publication[] = [
   {
     title: "Simulating and Building Robots with ROS 2",
     href: "https://adoodevv.hashnode.dev/",
-    venue:
-      "adoodevv.hashnode.dev · Mobile Robots with ROS 2 Jazzy & Gazebo Harmonic",
-    authors: [{ name: "Jonathan Adoo", isSelf: true }],
+    year: "2025",
+    venue: "Mobile robots with ROS 2 Jazzy and Gazebo Harmonic — adoodevv.hashnode.dev",
   },
 ];
