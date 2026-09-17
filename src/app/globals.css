@@ -14,11 +14,6 @@
   --color-rule: var(--rule);
   --color-rule-strong: var(--rule-strong);
 
-  /* the old names, kept so nothing that still refers to them breaks */
-  --color-background: var(--bg);
-  --color-foreground: var(--ink);
-  --color-muted: var(--ink-faint);
-
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 }
