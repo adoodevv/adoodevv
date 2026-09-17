@@ -1,78 +1,59 @@
-// Bump when the bio changes.
-const UPDATED = "Sep 7, 2026";
+import Image from "next/image";
+
+// The one line under the name: handle, then what I actually write code in.
+const HANDLE = "adoodevv";
+const LANGUAGES = ["python", "c++", "go", "typescript"];
 
 export default function Hero() {
   return (
-    <div className="flex flex-col gap-8">
-      <div className="space-y-2">
-        <h1 className="text-2xl font-bold tracking-tight text-foreground">
-          Jonathan Adoo
-        </h1>
-        <p className="text-sm text-muted">Updated {UPDATED}</p>
+    <header>
+      <div className="mb-7 flex items-center gap-4 sm:gap-5">
+        <Image
+          src="/avatar.jpg"
+          alt="Jonathan Adoo"
+          width={156}
+          height={156}
+          priority
+          className="h-[68px] w-[68px] shrink-0 rounded-full object-cover ring-1 ring-rule-strong sm:h-[78px] sm:w-[78px]"
+        />
+
+        <div className="min-w-0">
+          <h1 className="mb-1.5 text-[30px] leading-none font-semibold tracking-tight text-ink sm:text-[38px]">
+            jonathan
+          </h1>
+          <p className="font-mono text-[12px] tracking-wide text-ink-faint sm:text-[12.5px]">
+            {HANDLE} · {LANGUAGES.join(" / ")}
+          </p>
+        </div>
       </div>
 
-      <div className="space-y-4 text-[15px] leading-relaxed">
-        <p>I was born in Accra and still live in Accra.</p>
-
+      <div className="max-w-[62ch] space-y-3.5 text-[15.5px] leading-relaxed text-ink-soft sm:text-[16px]">
         <p>
-          I just finished my degree in Computer Engineering at{" "}
-          <a
-            href="https://www.knust.edu.gh"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            KNUST
-          </a>
-          .
-        </p>
-
-        <p>
-          I currently work at{" "}
+          robotics trainer at{" "}
           <a
             href="https://www.linkedin.com/company/mikrobot-academy"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
+            className="text-ink underline decoration-rule-strong underline-offset-4 transition-colors hover:decoration-ink"
           >
-            Mikrobot Academy
-          </a>{" "}
-          as a Robotics Trainer.
+            mikrobot
+          </a>
+          , a robotics research and teaching foundation in accra. most of my
+          week is building robots, and most of that is debugging them.
         </p>
 
         <p>
-          I build and maintain open source robotics tools, and write backend and
-          systems software &mdash; recently a booking service that cannot
-          double-book, and a link checker in Go.
+          most of what i build ends up open — ros 2 stacks that spare people
+          days of setup. the other half is backend: deciding who gets the last
+          seat is the same problem as a robot deciding where to go.
         </p>
 
         <p>
-          You can find me on{" "}
-          <a
-            href="https://github.com/adoodevv"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-          ,{" "}
-          <a
-            href="https://x.com/adoodevv"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            X
-          </a>{" "}
-          and{" "}
-          <a
-            href="https://www.linkedin.com/in/jonathan-adoo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-          , or reach me via{" "}
-          <a href="mailto:adoojonathan412@gmail.com">email</a>.
+          what i want next is physical ai — world models that have to be right
+          about the world itself, not just about a dataset.
         </p>
       </div>
-    </div>
+
+    </header>
   );
 }

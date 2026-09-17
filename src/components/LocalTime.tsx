@@ -6,19 +6,16 @@ import { useEffect, useState } from "react";
 // zone keeps it correct regardless of where the visitor is.
 const ZONE = "Africa/Accra";
 
-const formatter = new Intl.DateTimeFormat("en-US", {
+const formatter = new Intl.DateTimeFormat("en-GB", {
   timeZone: ZONE,
-  hour: "numeric",
+  hour: "2-digit",
   minute: "2-digit",
-  hour12: true,
+  hour12: false,
 });
 
-const format = (date: Date) =>
-  formatter.format(date).replace(" AM", "am").replace(" PM", "pm");
-
 export default function LocalTime() {
-  // Rendered empty on the server: the clock would disagree with the client and
-  // trip a hydration mismatch.
+  // Empty on the server: the clock would disagree with the client and trip a
+  // hydration mismatch.
   const [time, setTime] = useState<string | null>(null);
 
   useEffect(() => {
@@ -26,7 +23,7 @@ export default function LocalTime() {
 
     const tick = () => {
       const now = new Date();
-      setTime(format(now));
+      setTime(formatter.format(now));
       // Wake on the next minute boundary rather than polling every second.
       const toNextMinute =
         60_000 - (now.getSeconds() * 1000 + now.getMilliseconds());
@@ -37,11 +34,11 @@ export default function LocalTime() {
     return () => clearTimeout(timer);
   }, []);
 
+  if (!time) return null;
+
   return (
-    <p className="text-sm text-muted">
-      {/* Non-breaking space holds the line's height before the clock mounts. */}
-      <span>{time ?? " "}</span>
-      {time ? " in Accra, Ghana" : ""}
-    </p>
+    <span className="shrink-0 font-mono text-[12px] text-ink-faint tabular-nums">
+      {time} gmt
+    </span>
   );
 }

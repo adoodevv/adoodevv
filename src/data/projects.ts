@@ -10,6 +10,8 @@ export type Project = {
   kind: "robotics" | "software";
   stack: string[];
   description: string;
+  // `featured` picks the few that show on the home page.
+  featured?: boolean;
   image?: { src: string; alt: string };
   youtubeId?: string;
   links: ProjectLink[];
@@ -20,6 +22,7 @@ export const projects: Project[] = [
     title: "diff_drive_robot",
     year: "2024",
     kind: "robotics",
+    featured: true,
     stack: ["ROS 2 Jazzy", "Gazebo Harmonic", "SLAM Toolbox", "Nav2", "Python"],
     description:
       "A ready-to-run simulation of a two-wheeled robot that spares people the days of setup usually needed before they can drive one. It ships the whole stack — robot description, lidar, keyboard control, SLAM mapping with EKF sensor fusion, and Nav2 navigation on ROS 2 Jazzy and Gazebo Harmonic — and has become a starting point for robotics learners and students worldwide.",
@@ -45,6 +48,7 @@ export const projects: Project[] = [
     title: "so101_ros2",
     year: "2026",
     kind: "robotics",
+    featured: true,
     stack: ["ROS 2 Jazzy", "MoveIt 2", "ros2_control", "Gazebo Harmonic", "Python"],
     description:
       "A complete control stack for the SO-101 robot arm, taking it from a 3D description to picking things up in simulation. It covers the arm's model and meshes, RViz visualization, ros2_control with trajectory control for the arm and gripper, and a pick-and-place world in Gazebo Harmonic, with MoveIt 2 motion planning and a real-hardware interface on the roadmap.",
@@ -95,6 +99,7 @@ export const projects: Project[] = [
     title: "reservation-service",
     year: "2026",
     kind: "software",
+    featured: true,
     stack: ["TypeScript", "PostgreSQL", "GiST constraints", "Docker", "CI"],
     description:
       "A booking service for things that can only be sold once — a room, a seat, a time slot. Taking bookings is easy; the hard part is what happens when two people claim the last one in the same millisecond. Every booking here passes through a single Postgres GiST exclusion constraint, and a load harness proves it holds rather than assuming it: zero double-bookings across 27,000 concurrent attempts, against 35,966 from an unguarded control group put under identical load.",

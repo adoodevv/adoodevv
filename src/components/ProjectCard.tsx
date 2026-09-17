@@ -35,22 +35,22 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="space-y-5">
       <div className="flex items-baseline justify-between gap-4">
-        <h4 className="text-lg font-semibold tracking-tight text-foreground">
+        <h4 className="font-mono text-[15px] text-ink">
           {project.title}
         </h4>
-        <span className="shrink-0 text-sm text-muted tabular-nums">
+        <span className="shrink-0 font-mono text-[12px] text-ink-faint tabular-nums">
           {project.year}
         </span>
       </div>
 
-      <p className="text-xs text-muted">{project.stack.join(" · ")}</p>
+      <p className="font-mono text-[11.5px] text-ink-faint">{project.stack.join(" · ")}</p>
 
-      <p className="text-[15px] leading-relaxed">{project.description}</p>
+      <p className="text-[15.5px] leading-relaxed text-ink-soft">{project.description}</p>
 
       {hasMedia ? (
         <div className="grid gap-3 sm:grid-cols-2">
           {project.image ? (
-            <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-zinc-900">
+            <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-surface-2">
               <Image
                 src={project.image.src}
                 alt={project.image.alt}
@@ -62,7 +62,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           ) : null}
 
           {project.youtubeId ? (
-            <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-zinc-900">
+            <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-surface-2">
               <iframe
                 src={`https://www.youtube.com/embed/${project.youtubeId}`}
                 title={`${project.title} demo video`}
@@ -83,7 +83,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm no-underline hover:underline"
+              className="inline-flex items-center gap-2 font-mono text-[12.5px] text-ink-faint no-underline transition-colors hover:text-ink hover:underline"
             >
               <LinkIcon type={link.type} />
               <span>{link.label}</span>

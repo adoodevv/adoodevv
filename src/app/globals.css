@@ -1,47 +1,77 @@
 @import "tailwindcss";
 
-:root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --text-muted: #a1a1aa;
-}
+/* the page is black and stays black. tells the browser to paint scrollbars,
+   form controls and the overscroll gutter dark too. */
+:root { color-scheme: dark; }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--text-muted);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+
+  /* the old names, kept so nothing that still refers to them breaks */
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --color-muted: var(--ink-faint);
+
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* every colour on this page is black, white or a grey between them. the only
+   colour anywhere is the prism fringe the nav throws, and that one is light,
+   not paint. contrast on the #000 ground:
+     ink       #ffffff  21:1      ink-soft  #d4d4d8  15.4:1
+     ink-faint #8f8f97   6.9:1
+   nothing below 4.5 carries body text. */
+:root {
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface-2: #151515;
+  --ink: #ffffff;
+  --ink-soft: #d4d4d8;
+  --ink-faint: #8f8f97;
+  --rule: rgba(255, 255, 255, 0.10);
+  --rule-strong: rgba(255, 255, 255, 0.22);
 }
 
 body {
-  background-color: var(--background);
-  color: var(--text-muted);
+  background-color: var(--bg);
+  color: var(--ink-soft);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  /* the footer's board breaks the column with w-screen. `clip` keeps the
+     sideways overflow out of the page without making body a scroll
+     container, which is what `hidden` would do — and that would stop the
+     nav sticking. */
+  overflow-x: clip;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--foreground);
-  font-weight: 700;
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ink);
+  font-weight: 600;
 }
 
-a {
-  color: var(--foreground);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-  transition: opacity 0.15s ease;
+a { color: inherit; }
+
+::selection {
+  background: var(--ink);
+  color: var(--bg);
 }
 
-a:hover {
-  opacity: 0.75;
-  color: var(--text-muted);
-  transition: color 0.15s ease;
+/* visible keyboard focus. the default ring vanishes on black. */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
 button {
@@ -49,4 +79,56 @@ button {
   border: none;
   padding: 0;
   font: inherit;
+}
+
+/* film grain. keeps a flat black page from looking like flat css. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* the nav scrolls sideways on a narrow phone. it should not show a bar doing it. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+/* A thin outline with refracting glass behind it — no fill, no gloss. The
+   panel itself paints nothing; the only thing between the page and the eye is
+   the filter, so what you see through the bar is the page itself, bent.
+
+   A blur averages the pixels behind a panel. Glass bends them, and bends red,
+   green and blue by different amounts, which is why a thick edge fringes with
+   colour. The SVG filter in Navigation.tsx builds a noise field with
+   feTurbulence, then shoves each backdrop pixel sideways by it three separate
+   times at three scales, keeping one channel from each. That splitting is the
+   rainbow you get when white text slides under the bar.
+
+   backdrop-filter with an svg url() is blink-only today. The plain frosted
+   declaration is written first on purpose: a browser that cannot parse the
+   url() form throws that line away and keeps the frosted one. */
+@utility glass {
+  position: relative;
+  isolation: isolate;
+
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  backdrop-filter: blur(14px) saturate(170%);
+  -webkit-backdrop-filter: url(#prism) blur(1.5px) saturate(210%);
+  backdrop-filter: url(#prism) blur(1.5px) saturate(210%);
+}
+
+/* people who ask for less motion get a still page: no scramble, no growing
+   underline, no gif loop they did not choose. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
