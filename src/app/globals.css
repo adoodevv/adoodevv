@@ -105,17 +105,39 @@ body::before {
    times at three scales, keeping one channel from each. That splitting is the
    rainbow you get when white text slides under the bar.
 
-   backdrop-filter with an svg url() is blink-only today. The plain frosted
-   declaration is written first on purpose: a browser that cannot parse the
-   url() form throws that line away and keeps the frosted one. */
+   Frosted is the floor every engine gets, and it is written on its own rather
+   than as an earlier declaration in the same block. An earlier declaration only
+   survives in a browser that rejects the url() form while *parsing*, and no
+   engine does: WebKit parses a url() in a filter list happily and then renders
+   nothing for it, so the overriding declaration was leaving every iPhone with
+   bare, unblurred text over the page. */
 @utility glass {
   position: relative;
   isolation: isolate;
 
   -webkit-backdrop-filter: blur(14px) saturate(170%);
   backdrop-filter: blur(14px) saturate(170%);
-  -webkit-backdrop-filter: url(#prism) blur(1.5px) saturate(210%);
-  backdrop-filter: url(#prism) blur(1.5px) saturate(210%);
+}
+
+/* Blink is the only engine that actually paints an SVG filter reference in
+   backdrop-filter, so the prism is gated behind a Blink-only probe — the Paint
+   API ships nowhere else. Everyone else keeps the frosted rule above.
+
+   The two filters differ only in wavelength and throw: the field is measured in
+   user-space pixels, so the wide one has nothing to bend across a phone-width
+   bar. Breakpoint matches Tailwind's sm. */
+@supports (background: paint(glass)) {
+  .glass {
+    -webkit-backdrop-filter: url(#prism-sm) blur(1.5px) saturate(210%);
+    backdrop-filter: url(#prism-sm) blur(1.5px) saturate(210%);
+  }
+
+  @media (min-width: 40rem) {
+    .glass {
+      -webkit-backdrop-filter: url(#prism) blur(1.5px) saturate(210%);
+      backdrop-filter: url(#prism) blur(1.5px) saturate(210%);
+    }
+  }
 }
 
 /* people who ask for less motion get a still page: no scramble, no growing
