@@ -111,21 +111,21 @@ export default function Footer() {
 
       {/* The arm. Drawn by scripts/make-arm-gif.py: it goes for a cube, the
           cube walks off, and things go about as well as robotics usually
-          does. 390x228 at 3x, shown at 2x on phones so the pixels stay
-          whole. */}
+          does. 390x210 at 3x, shown at 2x on phones so the pixels stay
+          whole. Its bottom edge is the ground, so it stands on the rule. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none mx-auto mt-14 mb-6 w-[260px] max-w-full select-none sm:w-[390px]"
+        className="pointer-events-none mx-auto mt-14 w-[260px] max-w-full select-none sm:w-[390px]"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/arm.gif"
           alt=""
           width={390}
-          height={228}
+          height={210}
           loading="lazy"
           decoding="async"
-          className="h-auto w-full"
+          className="block h-auto w-full"
           style={{ imageRendering: "pixelated" }}
         />
       </div>

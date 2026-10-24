@@ -2,7 +2,7 @@
 cube, the cube walks off, the arm can't reach it, the cube comes back out of
 pity, the arm finally lifts it and then drops it. Then it starts over.
 
-Everything is drawn at 160x90, cropped to the 130x76 where things happen,
+Everything is drawn at 160x90, cropped to the 130x70 where things happen,
 and scaled 3x with nearest-neighbour, so each logical pixel is a crisp 3x3
 block. Black, white and greys like the rest of the site, plus one filament
 orange for the cube's core and the arm's question mark.
@@ -16,14 +16,14 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 W, H, SCALE = 160, 90, 3
-CROP = (14, 10, 144, 86)
+# the bottom edge is the ground, so the arm stands on the footer rule
+CROP = (14, 10, 144, 80)
 FRAME_MS = 60
 
 BG = (0, 0, 0)
 INK = (255, 255, 255)
 SOFT = (212, 212, 216)
 FAINT = (143, 143, 151)
-DIM = (38, 38, 42)
 # the one colour: filament orange, for the cube's core and the arm's doubts
 FILAMENT = (255, 122, 26)
 
@@ -154,8 +154,6 @@ def draw(state):
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
 
-    d.line([(0, GROUND), (W, GROUND)], fill=DIM)
-
     # base
     sx, sy = SHOULDER
     d.polygon([(sx - 8, GROUND - 1), (sx + 8, GROUND - 1), (sx + 5, sy + 4), (sx - 5, sy + 4)], fill=FAINT)
@@ -202,7 +200,7 @@ def main():
     # One fixed palette with the background at index 0, which is then marked
     # transparent: the page under the footer has grain on it, and a solid
     # black box would show.
-    colours = [BG, INK, SOFT, FAINT, DIM, FILAMENT]
+    colours = [BG, INK, SOFT, FAINT, FILAMENT]
     pal = Image.new("P", (1, 1))
     pal.putpalette([v for c in colours for v in c] + [0] * 3 * (256 - len(colours)))
     frames = [draw(s).quantize(palette=pal, dither=Image.Dither.NONE) for s in timeline()]
