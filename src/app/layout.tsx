@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Jonathan Adoo",
   description:
-    "Robotics trainer at Mikrobot. Open-source ROS 2 robotics, backend systems that hold under concurrency, and research into world models — heading toward physical AI.",
+    "I love robots and software, so I build them. Robotics trainer at Mikrobot; otherwise ROS 2 stacks, full-stack software and AI.",
 };
 
 export default function RootLayout({

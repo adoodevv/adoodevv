@@ -49,9 +49,9 @@ export const projects: Project[] = [
     year: "2026",
     kind: "robotics",
     featured: true,
-    stack: ["ROS 2 Jazzy", "MoveIt 2", "ros2_control", "Gazebo Harmonic", "Python"],
+    stack: ["ROS 2 Jazzy", "MoveIt 2", "ros2_control", "Gazebo Harmonic", "C++", "Python"],
     description:
-      "A complete control stack for the SO-101 robot arm, taking it from a 3D description to picking things up in simulation. It covers the arm's model and meshes, RViz visualization, ros2_control with trajectory control for the arm and gripper, and a pick-and-place world in Gazebo Harmonic, with MoveIt 2 motion planning and a real-hardware interface on the roadmap.",
+      "A ROS 2 stack for the SO-101 arm, from its URDF all the way to the real thing. MoveIt 2 plans with OMPL, Pilz or STOMP, Gazebo Harmonic runs a pick-and-place world, and a C++ ros2_control plugin drives the physical Feetech follower arm straight from its LeRobot calibration. A leader arm teleoperates the follower over ROS 2 with no LeRobot at runtime, and headless end-to-end tests keep the whole thing honest in CI.",
     image: {
       src: "/portfolio/so101_gazebo.png",
       alt: "SO-101 follower arm in Gazebo simulation",

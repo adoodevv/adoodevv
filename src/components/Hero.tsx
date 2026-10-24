@@ -27,9 +27,9 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="max-w-[62ch] space-y-3.5 text-[15.5px] leading-relaxed text-ink-soft sm:text-[16px]">
+      <div className="max-w-[62ch] text-[15.5px] leading-relaxed text-ink-soft sm:text-[16px]">
         <p>
-          robotics trainer at{" "}
+          i love robots and software, so i build them. robotics trainer at{" "}
           <a
             href="https://www.linkedin.com/company/mikrobot-academy"
             target="_blank"
@@ -38,22 +38,10 @@ export default function Hero() {
           >
             mikrobot
           </a>
-          , a robotics research and teaching foundation in accra. most of my
-          week is building robots, and most of that is debugging them.
-        </p>
-
-        <p>
-          most of what i build ends up open — ros 2 stacks that spare people
-          days of setup. the other half is backend: deciding who gets the last
-          seat is the same problem as a robot deciding where to go.
-        </p>
-
-        <p>
-          what i want next is physical ai — world models that have to be right
-          about the world itself, not just about a dataset.
+          , where i teach robots to move and humans to not blame the robot.
+          otherwise: ros 2 stacks, full-stack software, and ai.
         </p>
       </div>
-
     </header>
   );
 }

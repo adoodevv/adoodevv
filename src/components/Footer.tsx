@@ -103,28 +103,29 @@ function VisitorCount() {
 
 export default function Footer() {
   return (
-    <footer className="relative mt-24">
+    <footer className="mt-24 pb-10">
       <div className="space-y-2">
         <Spotify />
         <VisitorCount />
       </div>
 
-      {/* The duel. Nothing is ever drawn in the top 75px of the 400×300 frame,
-          so the box is 400×225 of it, scaled: the img is pinned to the bottom
-          at full container width and the dead strip is clipped off the top.
-          Cropping any tighter would behead the blast in the second half of
-          the loop, which does climb. */}
+      {/* The arm. Drawn by scripts/make-arm-gif.py: it goes for a cube, the
+          cube walks off, and things go about as well as robotics usually
+          does. 390x228 at 3x, shown at 2x on phones so the pixels stay
+          whole. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none relative mx-auto mt-14 h-[169px] w-[300px] max-w-full overflow-hidden select-none sm:h-[191px] sm:w-[340px]"
+        className="pointer-events-none mx-auto mt-14 mb-6 w-[260px] max-w-full select-none sm:w-[390px]"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/duel.gif"
+          src="/arm.gif"
           alt=""
+          width={390}
+          height={228}
           loading="lazy"
           decoding="async"
-          className="absolute bottom-0 left-0 w-full"
+          className="h-auto w-full"
           style={{ imageRendering: "pixelated" }}
         />
       </div>
@@ -145,29 +146,6 @@ export default function Footer() {
         </nav>
 
         <LocalTime />
-      </div>
-
-      {/* The board. It breaks the column and bleeds to both window edges at
-          every size, phones included. overflow-hidden matters: the image is
-          taller than this band at full width, and without clipping it climbs
-          up over the links. The mask fades its top edge into the page so it
-          arrives out of the black instead of starting on a seam. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none relative left-1/2 mt-12 -mb-6 h-[180px] w-screen -translate-x-1/2 overflow-hidden select-none sm:h-[240px]"
-        style={{
-          maskImage: "linear-gradient(to bottom, transparent, #000 55%)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent, #000 55%)",
-        }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/circuit-web.jpg"
-          alt=""
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-[center_60%] opacity-70"
-        />
       </div>
     </footer>
   );

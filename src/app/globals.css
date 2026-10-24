@@ -20,7 +20,7 @@
 
 /* every colour on this page is black, white or a grey between them. the only
    colour anywhere is the prism fringe the nav throws, and that one is light,
-   not paint. contrast on the #000 ground:
+   not paint — plus a dab of filament orange in the footer arm's gif. contrast on the #000 ground:
      ink       #ffffff  21:1      ink-soft  #d4d4d8  15.4:1
      ink-faint #8f8f97   6.9:1
    nothing below 4.5 carries body text. */
@@ -42,12 +42,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-
-  /* the footer's board breaks the column with w-screen. `clip` keeps the
-     sideways overflow out of the page without making body a scroll
-     container, which is what `hidden` would do — and that would stop the
-     nav sticking. */
-  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
